@@ -28,7 +28,7 @@ final class _MorseNode {
 final class _MorseTreeDecoder
     with Converter<Iterable<int>, Iterable<int>>
     implements MorseDecoder {
-  static final _MorseNode _root = _MorseNode();
+  static final _MorseNode _root = .new();
   static bool _treeIsLoaded = false;
 
   /// Loads the decoding tree from the [codeToMorseMap].
@@ -47,11 +47,11 @@ final class _MorseTreeDecoder
       for (final code in entry.value) {
         switch (code) {
           case dahCharCode:
-            current = current.dah ??= _MorseNode();
+            current = current.dah ??= .new();
             break;
 
           case ditCharCode:
-            current = current.dit ??= _MorseNode();
+            current = current.dit ??= .new();
             break;
         }
       }
@@ -94,7 +94,7 @@ final class _MorseTreeDecoder
 
   @override
   String convertText(String text) {
-    return String.fromCharCodes(convert(text.codeUnits));
+    return .fromCharCodes(convert(text.codeUnits));
   }
 
   /// Decodes a single Morse sequence into its corresponding character code.

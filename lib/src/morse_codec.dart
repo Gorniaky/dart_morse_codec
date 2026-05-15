@@ -23,8 +23,8 @@ final class MorseCodec with Codec<Iterable<int>, Iterable<int>> {
   /// You can optionally provide a custom [decoder] or [encoder].
   /// By default, it uses [MorseDecoder.tree] and a standard [MorseEncoder].
   const MorseCodec({
-    this.decoder = const MorseDecoder.tree(),
-    this.encoder = const MorseEncoder(),
+    this.decoder = const .tree(),
+    this.encoder = const .new(),
   });
 
   @override

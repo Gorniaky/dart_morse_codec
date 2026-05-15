@@ -12,6 +12,6 @@ extension IntIterableExtension on Iterable<int> {
   /// print(codes.toText()); // HELLO
   /// ```
   String toText() {
-    return String.fromCharCodes(this);
+    return .fromCharCodes(this);
   }
 }
