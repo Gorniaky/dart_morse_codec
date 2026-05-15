@@ -1,0 +1,74 @@
+# This file configures the static analysis results for your project (errors,
+# warnings, and lints).
+#
+# This enables the 'recommended' set of lints from `package:lints`.
+# This set helps identify many issues that may lead to problems when running
+# or consuming Dart code, and enforces writing Dart using a single, idiomatic
+# style and format.
+#
+# If you want a smaller set of lints you can change this to specify
+# 'package:lints/core.yaml'. These are just the most critical lints
+# (the recommended set includes the core lints).
+# The core lints are also what is used by pub.dev for scoring packages.
+
+include: package:lints/recommended.yaml
+
+linter:
+  rules:
+    
+    # avoid memory leak
+    - cancel_subscriptions
+    - close_sinks
+    
+    # with auto fixes
+    - always_declare_return_types
+    - always_put_required_named_parameters_first
+    - annotate_redeclares
+    - avoid_escaping_inner_quotes
+    - avoid_redundant_argument_values
+    - cascade_invocations
+    - combinators_ordering
+    - directives_ordering
+    - eol_at_end_of_file
+    - no_literal_bool_comparisons
+    - noop_primitive_operations
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_contains
+    - prefer_double_quotes
+    - prefer_final_in_for_each
+    - prefer_final_locals
+    - prefer_if_elements_to_conditional_expressions
+    - prefer_int_literals
+    - require_trailing_commas
+    - simplify_variable_pattern
+    - unawaited_futures
+    - unnecessary_await_in_return
+    - unnecessary_ignore
+    - unnecessary_lambdas
+    - unnecessary_parenthesis
+    - unnecessary_raw_strings
+    - unnecessary_unawaited
+    - use_colored_box
+    - use_decorated_box
+    - use_enums
+    - use_named_constants
+    - use_null_aware_elements
+    - use_raw_strings
+    - use_truncating_division
+
+# Uncomment the following section to specify additional rules.
+
+# linter:
+#   rules:
+#     - camel_case_types
+
+# analyzer:
+#   exclude:
+#     - path/to/excluded/files/**
+
+# For more information about the core and recommended set of lints, see
+# https://dart.dev/go/core-lints
+
+# For additional information about configuring this file, see
+# https://dart.dev/guides/language/analysis-options

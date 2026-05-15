@@ -1,0 +1,13 @@
+name: morse_codec
+description: Morse codec
+version: 1.0.0
+
+issue_tracker: https://github.com/Gorniaky/dart_morse_codec/issues
+repository: https://github.com/Gorniaky/dart_morse_codec
+
+environment:
+  sdk: ^3.11.5
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6
