@@ -20,7 +20,7 @@ final class _MorseNode {
 ///
 /// [_MorseTreeDecoder] implements the [MorseDecoder] interface. It builds an
 /// internal prefix tree (trie) from the [codeToMorseMap] to provide efficient
-/// O(m) decoding, where m is the length of the Morse sequence for a single
+/// O(n) decoding, where m is the length of the Morse sequence for a single
 /// character.
 ///
 /// This implementation is particularly efficient for decoding because it

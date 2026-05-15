@@ -45,7 +45,7 @@ part of "../morse_codec.dart";
 /// print(hello);  // .... . .-.. .-.. ---
 ///
 /// // Encode phrase with word separator
-/// final greeting = String.fromCharCodes(const MorseEncoder().convert('HELLO WORLD'.codeUnits));
+/// final greeting = String.fromCharCodes(const MorseEncoder().convert('Hello World'.codeUnits));
 /// print(greeting);  // .... . .-.. .-.. --- / .-- --- .-. .-.. -..
 /// ```
 ///

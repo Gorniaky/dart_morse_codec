@@ -80,8 +80,8 @@ const slashCharCode = 47;
 /// or when a Morse sequence cannot be decoded (not a valid Morse code),
 /// this code is used to represent the unmapped character.
 ///
-/// Value: 133 (‡ character in extended ASCII)
-const unknownCharCode = 133;
+/// Value: 65533 ( character in extended ASCII)
+const unknownCharCode = 65533;
 
 /// Internal constant for the unknown character code as a list.
 ///
