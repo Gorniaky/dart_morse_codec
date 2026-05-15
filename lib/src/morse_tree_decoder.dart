@@ -1,23 +1,39 @@
 part of "../morse_codec.dart";
 
-final class MorseNode {
+/// A node in the Morse code decoding tree.
+///
+/// Each node represents a position in a Morse sequence. Navigating through
+/// the tree using dots and dashes allows for efficient decoding.
+final class _MorseNode {
+  /// The character code associated with this node, if it represents a complete
+  /// Morse sequence.
   int? code;
 
-  /// `-`
-  MorseNode? dah;
+  /// The child node reached by a dash (`-`).
+  _MorseNode? dah;
 
-  /// `.`
-  MorseNode? dit;
-
-  MorseNode({this.code, this.dah, this.dit});
+  /// The child node reached by a dot (`.`).
+  _MorseNode? dit;
 }
 
-final class MorseTreeDecoder
+/// A Morse code decoder that uses a tree-based lookup algorithm.
+///
+/// [_MorseTreeDecoder] implements the [MorseDecoder] interface. It builds an
+/// internal prefix tree (trie) from the [codeToMorseMap] to provide efficient
+/// O(m) decoding, where m is the length of the Morse sequence for a single
+/// character.
+///
+/// This implementation is particularly efficient for decoding because it
+/// avoids string construction and map lookups during the traversal process.
+final class _MorseTreeDecoder
     with Converter<Iterable<int>, Iterable<int>>
     implements MorseDecoder {
-  static final MorseNode _root = .new();
+  static final _MorseNode _root = _MorseNode();
   static bool _treeIsLoaded = false;
 
+  /// Loads the decoding tree from the [codeToMorseMap].
+  ///
+  /// This is called lazily during the first call to [convert].
   static void _loadTree() {
     if (_treeIsLoaded) return;
 
@@ -26,16 +42,16 @@ final class MorseTreeDecoder
     for (final entry in codeToMorseMap.entries) {
       if (!existants.add(entry.value.join())) continue;
 
-      MorseNode current = _root;
+      _MorseNode current = _root;
 
       for (final code in entry.value) {
         switch (code) {
           case dahCharCode:
-            current = current.dah ??= .new();
+            current = current.dah ??= _MorseNode();
             break;
 
           case ditCharCode:
-            current = current.dit ??= .new();
+            current = current.dit ??= _MorseNode();
             break;
         }
       }
@@ -46,7 +62,7 @@ final class MorseTreeDecoder
     _treeIsLoaded = true;
   }
 
-  const MorseTreeDecoder();
+  const _MorseTreeDecoder();
 
   @override
   Iterable<int> convert(Iterable<int> input) sync* {
@@ -78,11 +94,14 @@ final class MorseTreeDecoder
 
   @override
   String convertText(String text) {
-    return .fromCharCodes(convert(text.codeUnits));
+    return String.fromCharCodes(convert(text.codeUnits));
   }
 
+  /// Decodes a single Morse sequence into its corresponding character code.
+  ///
+  /// Traverses the tree based on the provided [morseCodeUnits].
   int? _decodeLetter(List<int> morseCodeUnits) {
-    MorseNode? current = _root;
+    _MorseNode? current = _root;
 
     for (final codeUnit in morseCodeUnits) {
       switch (codeUnit) {

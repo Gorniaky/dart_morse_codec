@@ -8,7 +8,7 @@ void main() {
       const expected = "SOS";
 
       expect(
-        String.fromCharCodes(const MorseTreeDecoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseDecoder.tree().convert(text.codeUnits)),
         expected,
       );
     });
@@ -18,7 +18,7 @@ void main() {
       const expected = "HELLO WORLD!";
 
       expect(
-        String.fromCharCodes(const MorseTreeDecoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseDecoder.tree().convert(text.codeUnits)),
         expected,
       );
     });

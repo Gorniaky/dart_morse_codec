@@ -21,7 +21,7 @@ part of "../morse_codec.dart";
 /// Characters are accumulated until a space is encountered, then decoded via
 /// map lookup. Unknown Morse patterns map to code 133.
 final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
-  const factory MorseDecoder.tree() = MorseTreeDecoder;
+  const factory MorseDecoder.tree() = _MorseTreeDecoder;
 
   const MorseDecoder();
 
