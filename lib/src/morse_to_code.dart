@@ -1,5 +1,12 @@
 part of "../morse_codec.dart";
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart scripts/generate_morse_to_code.dart
+
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// dart format off
+
 const _morseToCodeMap = <String, int>{
 	"/": 32, //  
 	"-.-.--": 33, // !

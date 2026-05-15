@@ -26,6 +26,13 @@ void main() async {
     ..writeAll([
       'part of "../morse_codec.dart";',
       "",
+      "// GENERATED CODE - DO NOT MODIFY BY HAND",
+      "// dart scripts/generate_morse_to_code.dart",
+      "",
+      "// coverage:ignore-file",
+      "// ignore_for_file: type=lint",
+      "// dart format off",
+      "",
       "const _morseToCodeMap = <String, int>{",
       for (final entry in morseToCodeMap.entries)
         '\t"${entry.key}": ${entry.value}, // ${String.fromCharCode(entry.value)}',
