@@ -23,15 +23,18 @@ final class _MorseTreeDecoder
           break;
 
         default:
+          if (current == null) continue;
+
           switch (morseCode) {
             case dahCharCode:
-              current = current!.dah;
+              current = current.dah;
               break;
 
             case ditCharCode:
-              current = current!.dit;
+              current = current.dit;
               break;
           }
+
           break;
       }
     }
