@@ -1,21 +1,17 @@
 name: Publish to pub.dev
 
 on:
-  release:
-    types:
-      - created
+  push:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+*'
   workflow_dispatch:
     inputs:
       version:
         description: cli version e.g. 1.0.0
         type: string
         required: true
-      prerelease:
-        type: boolean
-        default: false
 
 env:
-  prerelease: ${{ inputs.prerelease || github.event.release.prerelease }}
   version: ${{ inputs.version || github.ref_name }}
 
 permissions:
