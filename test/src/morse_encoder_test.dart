@@ -22,5 +22,15 @@ void main() {
         expected,
       );
     });
+
+    test("Invalid Text", () {
+      const text = "Hello ϨWorld!";
+      const expected = ".... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--";
+
+      expect(
+        String.fromCharCodes(const MorseEncoder().convert(text.codeUnits)),
+        expected,
+      );
+    });
   });
 }
