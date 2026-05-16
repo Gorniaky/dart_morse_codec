@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
 
-A high-performance, lightweight Dart package for encoding and decoding Morse code. This package provides efficient converters to transform text into Morse code and vice versa, supporting letters, digits, and common punctuation marks.
+A lightweight Dart package for encoding and decoding Morse code. This package provides efficient converters to transform text into Morse code and vice versa, supporting letters, digits, and common punctuation marks.
 
 ## Table of Contents
 
