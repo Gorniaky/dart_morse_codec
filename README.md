@@ -181,28 +181,21 @@ The `morse_codec` package is designed for high performance:
 - **Tree Decoder**: First use builds the tree (one-time cost), subsequent uses are O(n)
 - **Memory Efficient**: Uses lazy evaluation with iterables instead of eager list allocation
 
-**Benchmarks** (typical operations):
-
-- Encoding 1000 characters: < 1ms
-- Decoding 1000 characters: < 1ms
-- Memory footprint: ~10KB for dart:convert integration
-
 ## Error Handling
 
 ### Character Not Supported
 
-Characters not in the Morse code mapping are replaced with the unknown character code (decimal 133, represented as `…`):
+Characters not in the Morse code mapping are replaced with the unknown character code (decimal 65533, represented as ``):
 
 ```dart
 import 'package:morse_codec/morse_codec.dart';
 
 void main() {  
   // Using an unsupported emoji
-  final result = String.fromCharCodes(
-    MorseEncoder().convert('Hi 😊'.codeUnits)
-  );
-  
+  final result = const MorseEncoder().convertText('Hi 😊');
+
   print('Result: $result');
+  // .... .. / � �
   // The emoji will be encoded as unknown character
 }
 ```
@@ -255,6 +248,7 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
 - [GitHub Repository](https://github.com/Gorniaky/dart_morse_codec)
 
 ---
+
 <!-- markdownlint-disable MD036 -->
 **Built with ❤️ for Dart developers**
 <!-- markdownlint-enable MD036 -->
