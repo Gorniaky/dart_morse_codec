@@ -3,6 +3,10 @@ part of "../morse_codec.dart";
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart scripts/generate_morse_tree.dart
 
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// dart format off
+
 // ignore: unused_element
 final class _MorseNode {
   const _MorseNode({this.code, this.dah, this.dit});
