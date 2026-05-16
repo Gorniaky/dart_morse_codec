@@ -31,10 +31,10 @@ dart pub add morse_codec
 Convert text to Morse code:
 
 ```dart
-import 'package:morse_codec/morse_codec.dart';
+import "package:morse_codec/morse_codec.dart";
 
 void main() {
-  const text = 'Hello World!';
+  const text = "Hello World!";
   
   // Convert text to Morse code
   final morseCode = const MorseEncoder().convertText(text);
@@ -56,10 +56,10 @@ void main() {
 Convert Morse code back to text:
 
 ```dart
-import 'package:morse_codec/morse_codec.dart';
+import "package:morse_codec/morse_codec.dart";
 
 void main() {
-  const morseCode = '.... . .-.. .-.. ---';
+  const morseCode = ".... . .-.. .-.. ---";
   
   // Convert Morse code to text
   final text = const MorseDecoder().convertText(morseCode);
@@ -74,10 +74,10 @@ void main() {
 For scenarios where you need alternative decoding strategies, use the binary tree based decoder:
 
 ```dart
-import 'package:morse_codec/morse_codec.dart';
+import "package:morse_codec/morse_codec.dart";
 
 void main() {
-  const morseCode = '... --- ...';
+  const morseCode = "... --- ...";
 
   // Create a tree-based decoder (uses a trie-like structure internally)
   // Or `MorseTreeDecoder`
@@ -95,15 +95,15 @@ void main() {
 If you need fine-grained control over the conversion process:
 
 ```dart
-import 'package:morse_codec/morse_codec.dart';
+import "package:morse_codec/morse_codec.dart";
 
 void main() {  
   // Work directly with character codes
-  const charCodes = [83, 79, 83]; // 'SOS'
+  const charCodes = [83, 79, 83]; // "SOS"
   
   final morseCharCodes = const MorseEncoder().convert(charCodes).toList();
   
-  print('Raw Morse codes: $morseCharCodes');
+  print("Raw Morse codes: $morseCharCodes");
   // Converts to: [46, 46, 46, 32, 45, 45, 45, 32, 46, 46, 46]
   // Which displays as: "... --- ..."
 }
@@ -188,13 +188,13 @@ The `morse_codec` package is designed for high performance:
 Characters not in the Morse code mapping are replaced with the unknown character code (decimal 65533, represented as ``):
 
 ```dart
-import 'package:morse_codec/morse_codec.dart';
+import "package:morse_codec/morse_codec.dart";
 
 void main() {  
   // Using an unsupported emoji
-  final result = const MorseEncoder().convertText('Hi 😊');
+  final result = const MorseEncoder().convertText("Hi 😊");
 
-  print('Result: $result');
+  print("Result: $result");
   // .... .. / � �
   // The emoji will be encoded as unknown character
 }
