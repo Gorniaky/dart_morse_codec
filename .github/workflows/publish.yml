@@ -1,9 +1,22 @@
 name: Publish to pub.dev
 
 on:
-  push:
-    tags:
-      - '[0-9]+.[0-9]+.[0-9]+*'
+  release:
+    types:
+      - created
+  workflow_dispatch:
+    inputs:
+      version:
+        description: cli version e.g. 1.0.0
+        type: string
+        required: true
+      prerelease:
+        type: boolean
+        default: false
+
+env:
+  prerelease: ${{ inputs.prerelease || github.event.release.prerelease }}
+  version: ${{ inputs.version || github.ref_name }}
 
 permissions:
   contents: read
@@ -23,6 +36,9 @@ jobs:
 
       - name: Install dependencies
         run: dart pub get
+
+      - name: Prepare pubspec
+        run: dart run scripts/prepare_pubspec.dart --version ${{ env.version }}
 
       # Uncomment this step to verify the use of 'dart format' on each commit.
       - name: Dart format
