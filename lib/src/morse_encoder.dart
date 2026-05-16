@@ -52,6 +52,7 @@ part of "../morse_codec.dart";
 /// ## Related
 /// - [MorseDecoder]: Decodes Morse code back to text
 final class MorseEncoder extends Converter<Iterable<int>, Iterable<int>> {
+  /// Create a [MorseEncoder]
   const MorseEncoder();
 
   @override
@@ -70,6 +71,7 @@ final class MorseEncoder extends Converter<Iterable<int>, Iterable<int>> {
     }
   }
 
+  /// Converts [input] as text and returns the result of the conversion as text.
   String convertText(String text) {
     return .fromCharCodes(convert(text.codeUnits));
   }

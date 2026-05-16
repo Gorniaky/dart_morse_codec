@@ -15,6 +15,7 @@ part of "../morse_codec.dart";
 /// - ` ` (space, code 32) separates individual Morse characters
 /// - `/` (code 47) separates words (becomes space in output)
 final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
+  /// Create a [MorseDecoder]
   const MorseDecoder();
 
   @override
@@ -48,6 +49,7 @@ final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
     yield current?.code ?? unknownCharCode;
   }
 
+  /// Converts [input] as text and returns the result of the conversion as text.
   String convertText(String text) {
     return .fromCharCodes(convert(text.codeUnits));
   }

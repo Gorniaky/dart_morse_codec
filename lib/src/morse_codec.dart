@@ -25,8 +25,10 @@ final class MorseCodec with Codec<Iterable<int>, Iterable<int>> {
   const MorseCodec({this.decoder = const .new(), this.encoder = const .new()});
 
   @override
+  /// Morse decoder
   final MorseDecoder decoder;
 
   @override
+  /// Morse encoder
   final MorseEncoder encoder;
 }
