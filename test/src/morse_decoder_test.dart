@@ -22,5 +22,17 @@ void main() {
         expected,
       );
     });
+
+    test("Alphabet", () {
+      const text =
+          "/ .- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. ----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -.-.-- .-..-. ...-..- .-... .----. -.--. -.--.- .-.-. --..-- -....- .-.-.- -..-. ---... -.-.-. -...- ..--.. .--.-. ..--.-";
+      const expected =
+          " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"\$&'()+,-./:;=?@_";
+
+      expect(
+        String.fromCharCodes(const MorseDecoder().convert(text.codeUnits)),
+        expected,
+      );
+    });
   });
 }

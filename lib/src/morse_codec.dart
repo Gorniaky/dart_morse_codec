@@ -21,8 +21,8 @@ part of "../morse_codec.dart";
 /// ```
 final class MorseCodec with Codec<Iterable<int>, Iterable<int>> {
   /// You can optionally provide a custom [decoder] or [encoder].
-  /// By default, it uses [MorseDecoder.tree] and a standard [MorseEncoder].
-  const MorseCodec({this.decoder = const .tree(), this.encoder = const .new()});
+  /// By default, it uses [MorseDecoder] and a standard [MorseEncoder].
+  const MorseCodec({this.decoder = const .new(), this.encoder = const .new()});
 
   @override
   final MorseDecoder decoder;

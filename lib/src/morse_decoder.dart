@@ -15,30 +15,37 @@ part of "../morse_codec.dart";
 /// - ` ` (space, code 32) separates individual Morse characters
 /// - `/` (code 47) separates words (becomes space in output)
 final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
-  const factory MorseDecoder.tree() = _MorseTreeDecoder;
-
   const MorseDecoder();
 
   @override
   Iterable<int> convert(Iterable<int> input) sync* {
-    final letter = <int>[];
+    _MorseNode? current = _morseTree;
 
-    for (final char in input) {
-      switch (char) {
+    for (final morseCode in input) {
+      switch (morseCode) {
         case spaceCharCode:
-          yield _morseToCodeMap[String.fromCharCodes(letter)] ??
-              unknownCharCode;
-          letter.clear();
+          yield current?.code ?? unknownCharCode;
+          current = _morseTree;
           break;
+
         default:
-          letter.add(char);
+          if (current == null) continue;
+
+          switch (morseCode) {
+            case dahCharCode:
+              current = current.dah;
+              break;
+
+            case ditCharCode:
+              current = current.dit;
+              break;
+          }
+
           break;
       }
     }
 
-    if (letter.isEmpty) return;
-
-    yield _morseToCodeMap[String.fromCharCodes(letter)] ?? unknownCharCode;
+    yield current?.code ?? unknownCharCode;
   }
 
   String convertText(String text) {

@@ -69,25 +69,6 @@ void main() {
 }
 ```
 
-#### Using the Binary Tree Based Decoder
-
-For scenarios where you need alternative decoding strategies, use the binary tree based decoder:
-
-```dart
-import "package:morse_codec/morse_codec.dart";
-
-void main() {
-  const morseCode = "... --- ...";
-
-  // Create a tree-based decoder (uses a trie-like structure internally)
-  // Or `MorseTreeDecoder`
-  final text = const MorseDecoder.tree().convertText(morseCode.codeUnits);
-
-  print(text);
-  // Output: SOS
-}
-```
-
 ### Advanced Usage
 
 #### Working with Character Codes Directly
@@ -178,7 +159,6 @@ The `morse_codec` package is designed for high performance:
 
 - **Time Complexity**: O(n) for both encoding and decoding, where n is the number of characters
 - **Space Complexity**: O(n) for the output, with minimal overhead
-- **Tree Decoder**: First use builds the tree (one-time cost), subsequent uses are O(n)
 - **Memory Efficient**: Uses lazy evaluation with iterables instead of eager list allocation
 
 ## Error Handling

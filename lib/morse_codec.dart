@@ -38,9 +38,7 @@ part "src/extensions/iterable.dart";
 part "src/morse_codec.dart";
 part "src/morse_decoder.dart";
 part "src/morse_encoder.dart";
-part "src/morse_to_code.dart";
 part "src/morse_tree.dart";
-part "src/morse_tree_decoder.dart";
 
 /// Character code for space (` `).
 ///
