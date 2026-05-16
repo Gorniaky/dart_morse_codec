@@ -32,5 +32,16 @@ void main() {
         expected,
       );
     });
+
+    test("Alphabet", () {
+      const text = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"\$&'()+,-./:;=?@_";
+      const expected =
+          "/ .- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. ----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----. -.-.-- .-..-. ...-..- .-... .----. -.--. -.--.- .-.-. --..-- -....- .-.-.- -..-. ---... -.-.-. -...- ..--.. .--.-. ..--.-";
+
+      expect(
+        String.fromCharCodes(const MorseEncoder().convert(text.codeUnits)),
+        expected,
+      );
+    });
   });
 }
