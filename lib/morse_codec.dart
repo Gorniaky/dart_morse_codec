@@ -82,9 +82,3 @@ const slashCharCode = 47;
 ///
 /// Value: 65533 ( character in extended ASCII)
 const unknownCharCode = 65533;
-
-/// Internal constant for the unknown character code as a list.
-///
-/// Used internally for efficient yielding of unknown character markers
-/// in generator functions.
-const _unknownCharCodeList = [unknownCharCode];

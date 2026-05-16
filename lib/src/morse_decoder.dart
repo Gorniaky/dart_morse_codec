@@ -14,12 +14,6 @@ part of "../morse_codec.dart";
 /// - `-` (dash/dah, code 45) represents long signals
 /// - ` ` (space, code 32) separates individual Morse characters
 /// - `/` (code 47) separates words (becomes space in output)
-///
-/// ## Algorithm
-///
-/// Uses a map-based lookup approach with O(1) average-case character retrieval.
-/// Characters are accumulated until a space is encountered, then decoded via
-/// map lookup. Unknown Morse patterns map to code 133.
 final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
   const factory MorseDecoder.tree() = _MorseTreeDecoder;
 

@@ -60,11 +60,11 @@ final class MorseEncoder extends Converter<Iterable<int>, Iterable<int>> {
 
     if (!iterator.moveNext()) return;
 
-    yield* codeToMorseMap[iterator.current] ?? _unknownCharCodeList;
+    yield* codeToMorseMap[iterator.current] ?? const [];
 
     while (iterator.moveNext()) {
       yield spaceCharCode;
-      yield* codeToMorseMap[iterator.current] ?? _unknownCharCodeList;
+      yield* codeToMorseMap[iterator.current] ?? const [];
     }
   }
 

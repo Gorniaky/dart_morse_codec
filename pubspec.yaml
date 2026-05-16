@@ -5,6 +5,10 @@ version: 1.0.0
 issue_tracker: https://github.com/Gorniaky/dart_morse_codec/issues
 repository: https://github.com/Gorniaky/dart_morse_codec
 
+topics:
+  - convert
+  - morse
+
 environment:
   sdk: ^3.11.5
 
