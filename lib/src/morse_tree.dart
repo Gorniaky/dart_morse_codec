@@ -38,7 +38,7 @@ const _MorseNode _morseTree = .new(
           ),
         ),
         dit: .new(
-          code: 210, // Ò
+          code: 211, // Ó
           dah: null,
           dit: .new(
             code: 56, // 8
@@ -173,7 +173,7 @@ const _MorseNode _morseTree = .new(
         dit: .new(
           code: 80, // P
           dah: .new(
-            code: 192, // À
+            code: 193, // Á
             dah: null,
             dit: .new(
               code: 64, // @
@@ -234,7 +234,7 @@ const _MorseNode _morseTree = .new(
             dit: null,
           ),
           dit: .new(
-            code: 204, // Ì
+            code: 205, // Í
             dah: .new(
               code: 95, // _
               dah: null,
