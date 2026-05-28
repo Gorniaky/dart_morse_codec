@@ -21,16 +21,24 @@ final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
   @override
   Iterable<int> convert(Iterable<int> input) sync* {
     _MorseNode? current = _morseTree;
+    int previous = 0;
 
     for (final morseCode in input) {
       switch (morseCode) {
         case spaceCharCode:
+          if (previous == spaceCharCode) break;
+
+          if (previous == slashCharCode) {
+            yield spaceCharCode;
+            break;
+          }
+
           yield current?.code ?? unknownCharCode;
           current = _morseTree;
           break;
 
         default:
-          if (current == null) continue;
+          if (current == null) break;
 
           switch (morseCode) {
             case dahCharCode:
@@ -44,7 +52,11 @@ final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
 
           break;
       }
+
+      previous = morseCode;
     }
+
+    if (previous == spaceCharCode) return;
 
     yield current?.code ?? unknownCharCode;
   }

@@ -71,18 +71,18 @@ void main() async {
 }
 
 String _generateNode(_MorseNode? node, int indent) {
-  final suffix = indent > 0 ? "," : ";";
+  final suffix = indent == 0 ? ";" : ",";
 
   if (node == null) return "null$suffix";
 
   final space = "  " * indent;
 
   if ((node.code ?? node.dah ?? node.dit) == null) {
-    return ".new()$suffix";
+    return "null$suffix";
   }
 
   if ((node.dah ?? node.dit) == null) {
-    return """.new(code: ${node.code})$suffix""";
+    return """.new(code: ${node.code} /* ${String.fromCharCode(node.code!)} */)$suffix""";
   }
 
   if ((node.code ?? node.dah) == null) {
@@ -97,7 +97,7 @@ String _generateNode(_MorseNode? node, int indent) {
     ..writeAll([
       ".new(",
       if (node.code case final code?)
-        "$space  code: $code, // ${String.fromCharCode(code)}",
+        "$space  code: $code, /* ${String.fromCharCode(code)} */",
       if (node.dah case final dah?)
         "$space  dah: ${_generateNode(dah, indent + 1)}",
       if (node.dit case final dit?)
@@ -106,13 +106,4 @@ String _generateNode(_MorseNode? node, int indent) {
     ], "\n");
 
   return buffer.toString();
-
-  /* return """
-.new(
-$space  code: ${node.code}, // ${String.fromCharCode(node.code ?? 32)}
-$space  dah: ${_generateNode(node.dah, indent + 1)}
-$space  dit: ${_generateNode(node.dit, indent + 1)}
-$space)$suffix"""; */
 }
-
-/* // ${String.fromCharCode(node.code ?? 0)} */
