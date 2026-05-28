@@ -14,7 +14,7 @@ part of "../morse_codec.dart";
 /// - `-` (dash/dah, code 45) represents long signals
 /// - ` ` (space, code 32) separates individual Morse characters
 /// - `/` (code 47) separates words (becomes space in output)
-final class MorseDecoder extends Converter<Iterable<int>, Iterable<int>> {
+final class MorseDecoder with Converter<Iterable<int>, Iterable<int>> {
   /// Create a [MorseDecoder]
   const MorseDecoder();
 

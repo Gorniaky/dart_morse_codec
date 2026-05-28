@@ -51,7 +51,7 @@ part of "../morse_codec.dart";
 ///
 /// ## Related
 /// - [MorseDecoder]: Decodes Morse code back to text
-final class MorseEncoder extends Converter<Iterable<int>, Iterable<int>> {
+final class MorseEncoder with Converter<Iterable<int>, Iterable<int>> {
   /// Create a [MorseEncoder]
   const MorseEncoder();
 
