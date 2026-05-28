@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.2
+
+- fix: improve Morse code decoding and encoding logic, enhance test cases for better coverage
+
 ## 1.0.1+2
 
 - fix: improve Morse tree generation logic and clean up output formatting
