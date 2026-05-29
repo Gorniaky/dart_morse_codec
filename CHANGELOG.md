@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.4
+
+- fix encoding
+
 ## 1.0.3
 
 - improve MorseDecoder logic
