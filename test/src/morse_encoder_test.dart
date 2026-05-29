@@ -8,7 +8,7 @@ void main() {
       const expected = "... --- ...";
 
       expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
         expected,
       );
     });
@@ -18,17 +18,17 @@ void main() {
       const expected = ".... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--";
 
       expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
         expected,
       );
     });
 
     test("Invalid Text", () {
-      const text = "Hello ϨWorld!";
+      const text = "��Hello� �World!��";
       const expected = ".... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--";
 
       expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
         expected,
       );
     });
@@ -40,7 +40,17 @@ void main() {
           "/ .- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. / / ----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----. / / / -.-.-- .-..-. ...-..- .-... .----. -.--. -.--.- .-.-. --..-- -....- .-.-.- -..-. ---... -.-.-. -...- ..--.. .--.-. ..--.- / / / /";
 
       expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
+        expected,
+      );
+    });
+
+    test("Empty", () {
+      const text = "";
+      const expected = "";
+
+      expect(
+        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
         expected,
       );
     });

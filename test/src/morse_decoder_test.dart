@@ -8,7 +8,7 @@ void main() {
       const expected = "SOS";
 
       expect(
-        String.fromCharCodes(const MorseDecoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseDecoder().convert(text.runes)),
         expected,
       );
     });
@@ -18,7 +18,7 @@ void main() {
       const expected = "HELLO WORLD!";
 
       expect(
-        String.fromCharCodes(const MorseDecoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseDecoder().convert(text.runes)),
         expected,
       );
     });
@@ -30,7 +30,7 @@ void main() {
           " �ABCDEFGHIJKLMNOPQRSTUVWXYZ  0123456789   !\"\$&'()+,-./:;=?@_    ";
 
       expect(
-        String.fromCharCodes(const MorseDecoder().convert(text.codeUnits)),
+        String.fromCharCodes(const MorseDecoder().convert(text.runes)),
         expected,
       );
     });

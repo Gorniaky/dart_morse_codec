@@ -59,9 +59,12 @@ final class MorseEncoder with Converter<Iterable<int>, Iterable<int>> {
   Iterable<int> convert(Iterable<int> input) sync* {
     final iterator = input.iterator;
 
-    if (!iterator.moveNext()) return;
-
-    if (codeToMorseMap[iterator.current] case final letter?) yield* letter;
+    while (iterator.moveNext()) {
+      if (codeToMorseMap[iterator.current] case final letter?) {
+        yield* letter;
+        break;
+      }
+    }
 
     while (iterator.moveNext()) {
       if (codeToMorseMap[iterator.current] case final letter?) {
@@ -73,6 +76,6 @@ final class MorseEncoder with Converter<Iterable<int>, Iterable<int>> {
 
   /// Converts [input] as text and returns the result of the conversion as text.
   String convertText(String text) {
-    return .fromCharCodes(convert(text.codeUnits));
+    return .fromCharCodes(convert(text.runes));
   }
 }

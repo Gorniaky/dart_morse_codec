@@ -66,6 +66,6 @@ final class MorseDecoder with Converter<Iterable<int>, Iterable<int>> {
 
   /// Converts [input] as text and returns the result of the conversion as text.
   String convertText(String text) {
-    return .fromCharCodes(convert(text.codeUnits));
+    return .fromCharCodes(convert(text.runes));
   }
 }
