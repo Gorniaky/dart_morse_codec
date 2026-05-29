@@ -151,21 +151,7 @@ void main() {
 
 ### Unknown Characters
 
-Characters not in the mapping are replaced with the unknown character code (decimal 133).
-
-## Performance
-
-The `morse_codec` package is designed for high performance:
-
-- **Time Complexity**: O(n) for both encoding and decoding, where n is the number of characters
-- **Space Complexity**: O(n) for the output, with minimal overhead
-- **Memory Efficient**: Uses lazy evaluation with iterables instead of eager list allocation
-
-## Error Handling
-
-### Character Not Supported
-
-Characters not in the Morse code mapping are replaced with the unknown character code (decimal 65533, represented as ``):
+The encoder and decoder work in different ways, see the following examples:
 
 ```dart
 import "package:morse_codec/morse_codec.dart";
@@ -175,10 +161,25 @@ void main() {
   final result = const MorseEncoder().convertText("Hi 😊");
 
   print("Result: $result");
-  // .... .. / � �
-  // The emoji will be encoded as unknown character
+  // .... .. /
+  // Unknown characters will not be encoded
+
+  // Using an unsupported emoji
+  final result = const MorseDecoder().convertText(". .......... -");
+
+  print("Result: $result");
+  // E�T
+  // Invalid Morse codes will be decoded as unknown characters
 }
 ```
+
+## Performance
+
+The `morse_codec` package is designed for high performance:
+
+- **Time Complexity**: O(n) for both encoding and decoding, where n is the number of characters
+- **Space Complexity**: O(n) for the output, with minimal overhead
+- **Memory Efficient**: Uses lazy evaluation with iterables instead of eager list allocation
 
 ## Contributing
 

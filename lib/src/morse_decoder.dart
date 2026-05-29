@@ -26,15 +26,18 @@ final class MorseDecoder with Converter<Iterable<int>, Iterable<int>> {
     for (final morseCode in input) {
       switch (morseCode) {
         case spaceCharCode:
-          if (previous == spaceCharCode) break;
-
-          if (previous == slashCharCode) {
-            yield spaceCharCode;
-            break;
+          switch (previous) {
+            case spaceCharCode:
+              break;
+            case slashCharCode:
+              yield spaceCharCode;
+              break;
+            default:
+              yield current?.code ?? unknownCharCode;
+              current = _morseTree;
+              break;
           }
 
-          yield current?.code ?? unknownCharCode;
-          current = _morseTree;
           break;
 
         default:

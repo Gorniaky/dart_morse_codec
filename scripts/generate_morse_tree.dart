@@ -53,7 +53,7 @@ void main() async {
       "  final _MorseNode? dit;",
       "}",
       "",
-      "const _MorseNode _morseTree = ${_generateNode(root, 0)}",
+      "const _MorseNode _morseTree = ${_generateNode(root)}",
       "",
     ], "\n");
 
@@ -70,34 +70,29 @@ void main() async {
   await file.writeAsString(text);
 }
 
-String _generateNode(_MorseNode? node, int indent) {
+String _generateNode(_MorseNode? node, [int indent = 0]) {
   final suffix = indent == 0 ? ";" : ",";
 
   if (node == null) return "null$suffix";
 
-  final space = "  " * indent;
+  if ((node.code ?? node.dah ?? node.dit) == null) return "null$suffix";
 
-  if ((node.code ?? node.dah ?? node.dit) == null) {
-    return "null$suffix";
-  }
-
-  if ((node.dah ?? node.dit) == null) {
-    return """.new(code: ${node.code} /* ${String.fromCharCode(node.code!)} */)$suffix""";
-  }
+  if ((node.dah ?? node.dit) == null) return ".new(code: ${node.code})$suffix";
 
   if ((node.code ?? node.dah) == null) {
-    return """.new(dit: ${_generateNode(node.dit, indent + 1)})$suffix""";
+    return ".new(dit: ${_generateNode(node.dit, indent + 1)})$suffix";
   }
 
   if ((node.code ?? node.dit) == null) {
-    return """.new(dah: ${_generateNode(node.dah, indent + 1)})$suffix""";
+    return ".new(dah: ${_generateNode(node.dah, indent + 1)})$suffix";
   }
+
+  final space = "  " * indent;
 
   final StringBuffer buffer = .new()
     ..writeAll([
       ".new(",
-      if (node.code case final code?)
-        "$space  code: $code, /* ${String.fromCharCode(code)} */",
+      if (node.code case final code?) "$space  code: $code,",
       if (node.dah case final dah?)
         "$space  dah: ${_generateNode(dah, indent + 1)}",
       if (node.dit case final dit?)

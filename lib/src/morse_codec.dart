@@ -6,7 +6,7 @@ part of "../morse_codec.dart";
 /// for convenient translation between text and Morse code. It implements the
 /// [Codec<Iterable<int>, Iterable<int>>] interface.
 ///
-/// ## Example
+/// ### Example
 ///
 /// ```dart
 /// const codec = MorseCodec();
@@ -31,4 +31,26 @@ final class MorseCodec with Codec<Iterable<int>, Iterable<int>> {
   @override
   /// Morse encoder
   final MorseEncoder encoder;
+
+  /// A shortcut for [MorseDecoder.convertText]
+  String decodeText(String input) {
+    return decoder.convertText(input);
+  }
+
+  /// A shortcut for [MorseEncoder.convertText]
+  String encodeText(String input) {
+    return encoder.convertText(input);
+  }
 }
+
+/// An instance of the default implementation of the [MorseCodec].
+///
+/// This instance provides a convenient access to the most common Morse
+/// use cases.
+///
+/// Examples:
+/// ```dart
+/// var encoded = morse.encode("SOS".codeUnits);
+/// var decoded = morse.decode("... --- ...".codeUnits);
+/// ```
+const MorseCodec morse = .new();

@@ -17,145 +17,145 @@ final class _MorseNode {
 }
 
 const _MorseNode _morseTree = .new(
-  code: 32, /*   */
+  code: 32,
   dah: .new(
-    code: 84, /* T */
+    code: 84,
     dah: .new(
-      code: 77, /* M */
+      code: 77,
       dah: .new(
-        code: 79, /* O */
+        code: 79,
         dah: .new(
-          dah: .new(code: 48 /* 0 */),
-          dit: .new(code: 57 /* 9 */),
+          dah: .new(code: 48),
+          dit: .new(code: 57),
         ),
         dit: .new(
-          code: 211, /* Ó */
+          code: 211,
           dit: .new(
-            code: 56, /* 8 */
-            dit: .new(code: 58 /* : */),
+            code: 56,
+            dit: .new(code: 58),
           ),
         ),
       ),
       dit: .new(
-        code: 71, /* G */
+        code: 71,
         dah: .new(
-          code: 81, /* Q */
-          dah: .new(code: 209 /* Ñ */),
+          code: 81,
+          dah: .new(code: 209),
         ),
         dit: .new(
-          code: 90, /* Z */
-          dah: .new(dah: .new(code: 44 /* , */)),
-          dit: .new(code: 55 /* 7 */),
+          code: 90,
+          dah: .new(dah: .new(code: 44)),
+          dit: .new(code: 55),
         ),
       ),
     ),
     dit: .new(
-      code: 78, /* N */
+      code: 78,
       dah: .new(
-        code: 75, /* K */
+        code: 75,
         dah: .new(
-          code: 89, /* Y */
+          code: 89,
           dit: .new(
-            code: 40, /* ( */
-            dah: .new(code: 41 /* ) */),
+            code: 40,
+            dah: .new(code: 41),
           ),
         ),
         dit: .new(
-          code: 67, /* C */
+          code: 67,
           dah: .new(
-            dah: .new(code: 33 /* ! */),
-            dit: .new(code: 59 /* ; */),
+            dah: .new(code: 33),
+            dit: .new(code: 59),
           ),
-          dit: .new(code: 199 /* Ç */),
+          dit: .new(code: 199),
         ),
       ),
       dit: .new(
-        code: 68, /* D */
+        code: 68,
         dah: .new(
-          code: 88, /* X */
-          dit: .new(code: 47 /* / */),
+          code: 88,
+          dit: .new(code: 47),
         ),
         dit: .new(
-          code: 66, /* B */
-          dah: .new(code: 61 /* = */),
+          code: 66,
+          dah: .new(code: 61),
           dit: .new(
-            code: 54, /* 6 */
-            dah: .new(code: 45 /* - */),
+            code: 54,
+            dah: .new(code: 45),
           ),
         ),
       ),
     ),
   ),
   dit: .new(
-    code: 69, /* E */
+    code: 69,
     dah: .new(
-      code: 65, /* A */
+      code: 65,
       dah: .new(
-        code: 87, /* W */
+        code: 87,
         dah: .new(
-          code: 74, /* J */
+          code: 74,
           dah: .new(
-            code: 49, /* 1 */
-            dit: .new(code: 39 /* ' */),
+            code: 49,
+            dit: .new(code: 39),
           ),
         ),
         dit: .new(
-          code: 80, /* P */
+          code: 80,
           dah: .new(
-            code: 193, /* Á */
-            dit: .new(code: 64 /* @ */),
+            code: 193,
+            dit: .new(code: 64),
           ),
         ),
       ),
       dit: .new(
-        code: 82, /* R */
+        code: 82,
         dah: .new(
-          code: 196, /* Ä */
-          dah: .new(code: 194 /* Â */),
+          code: 196,
+          dah: .new(code: 194),
           dit: .new(
-            code: 43, /* + */
-            dah: .new(code: 46 /* . */),
+            code: 43,
+            dah: .new(code: 46),
           ),
         ),
         dit: .new(
-          code: 76, /* L */
+          code: 76,
           dah: .new(
-            code: 201, /* É */
-            dit: .new(code: 34 /* " */),
+            code: 201,
+            dit: .new(code: 34),
           ),
-          dit: .new(code: 38 /* & */),
+          dit: .new(code: 38),
         ),
       ),
     ),
     dit: .new(
-      code: 73, /* I */
+      code: 73,
       dah: .new(
-        code: 85, /* U */
+        code: 85,
         dah: .new(
-          code: 207, /* Ï */
-          dah: .new(code: 50 /* 2 */),
+          code: 207,
+          dah: .new(code: 50),
           dit: .new(
-            code: 205, /* Í */
-            dah: .new(code: 95 /* _ */),
-            dit: .new(code: 63 /* ? */),
+            code: 205,
+            dah: .new(code: 95),
+            dit: .new(code: 63),
           ),
         ),
         dit: .new(
-          code: 70, /* F */
-          dit: .new(code: 200 /* È */),
+          code: 70,
+          dit: .new(code: 200),
         ),
       ),
       dit: .new(
-        code: 83, /* S */
+        code: 83,
         dah: .new(
-          code: 86, /* V */
-          dah: .new(code: 51 /* 3 */),
-          dit: .new(dit: .new(dah: .new(code: 36 /* $ */))),
+          code: 86,
+          dah: .new(code: 51),
+          dit: .new(dit: .new(dah: .new(code: 36))),
         ),
         dit: .new(
-          code: 72, /* H */
-          dah: .new(code: 52 /* 4 */),
-          dit: .new(code: 53 /* 5 */),
+          code: 72,
+          dah: .new(code: 52),
+          dit: .new(code: 53),
         ),
       ),
     ),
