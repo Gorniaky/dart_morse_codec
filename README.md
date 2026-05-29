@@ -35,10 +35,10 @@ import "package:morse_codec/morse_codec.dart";
 
 void main() {
   const text = "Hello World!";
-  
+
   // Convert text to Morse code
   final morseCode = const MorseEncoder().convertText(text);
-  
+
   print(morseCode);
   // Output: .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
 }
@@ -60,10 +60,10 @@ import "package:morse_codec/morse_codec.dart";
 
 void main() {
   const morseCode = ".... . .-.. .-.. ---";
-  
+
   // Convert Morse code to text
   final text = const MorseDecoder().convertText(morseCode);
-  
+
   print(text);
   // Output: HELLO
 }
@@ -78,12 +78,12 @@ If you need fine-grained control over the conversion process:
 ```dart
 import "package:morse_codec/morse_codec.dart";
 
-void main() {  
+void main() {
   // Work directly with character codes
   const charCodes = [83, 79, 83]; // "SOS"
-  
+
   final morseCharCodes = const MorseEncoder().convert(charCodes).toList();
-  
+
   print("Raw Morse codes: $morseCharCodes");
   // Converts to: [46, 46, 46, 32, 45, 45, 45, 32, 46, 46, 46]
   // Which displays as: "... --- ..."
@@ -94,60 +94,49 @@ void main() {
 
 ## Supported Characters
 
-### Letters (A-Z)
+### Letters (A-Z) & Digits (0-9)
 
 - Case-insensitive encoding (input is converted to uppercase)
 - All 26 letters supported
-
-| Letter | Morse | Letter | Morse |
-| ------ | ----- | ------ | ----- |
-| A | .- | N | -. |
-| B | -... | O | --- |
-| C | -.-. | P | .--. |
-| D | -.. | Q | --.- |
-| E | . | R | .-. |
-| F | ..-. | S | ... |
-| G | --. | T | - |
-| H | .... | U | ..- |
-| I | .. | V | ...- |
-| J | .--- | W | .-- |
-| K | -.- | X | -..- |
-| L | .-.. | Y | -.-- |
-| M | -- | Z | --.. |
-
-### Digits (0-9)
-
 - All 10 digits supported
 
-| Digit | Morse | Digit | Morse |
-| ----- | ----- | ----- | ----- |
-| 0 | ----- | 5 | ..... |
-| 1 | .---- | 6 | -.... |
-| 2 | ..--- | 7 | --... |
-| 3 | ...-- | 8 | ---.. |
-| 4 | ....- | 9 | ----. |
+| Letter | Morse  | Letter | Morse  | Letter | Morse  | Digit | Morse   |
+| ------ | ------ | ------ | ------ | ------ | ------ | ----- | ------- |
+| `A`    | `.-`   | `K`    | `-.-`  | `U`    | `..-`  | `0`   | `-----` |
+| `B`    | `-...` | `L`    | `.-..` | `V`    | `...-` | `1`   | `.----` |
+| `C`    | `-.-.` | `M`    | `--`   | `W`    | `.--`  | `2`   | `..---` |
+| `D`    | `-..`  | `N`    | `-.`   | `X`    | `-..-` | `3`   | `...--` |
+| `E`    | `.`    | `O`    | `---`  | `Y`    | `-.--` | `4`   | `....-` |
+| `F`    | `..-.` | `P`    | `.--.` | `Z`    | `--..` | `5`   | `.....` |
+| `G`    | `--.`  | `Q`    | `--.-` |        |        | `6`   | `-....` |
+| `H`    | `....` | `R`    | `.-.`  |        |        | `7`   | `--...` |
+| `I`    | `..`   | `S`    | `...`  |        |        | `8`   | `---..` |
+| `J`    | `.---` | `T`    | `-`    |        |        | `9`   | `----.` |
 
 ### Punctuation & Symbols
 
-- Exclamation mark: `!` → `-.-.--`
-- Question mark: `?` → `..--..`
-- Period: `.` → `.-.-.-`
-- Comma: `,` → `--..--`
-- Apostrophe: `'` → `.----.`
-- Exclamation: `!` → `-.-.--`
-- Slash: `/` → `-..-.`
-- Left parenthesis: `(` → `-.--.`
-- Right parenthesis: `)` → `-.--.-`
-- Ampersand: `&` → `.-...`
-- Colon: `:` → `---...`
-- Semicolon: `;` → `-.-.-.`
-- Plus: `+` → `.-.-.`
-- Minus: `-` → `-....-`
-- Equals: `=` → `-...-`
-- At symbol: `@` → `.--.-.`
-- Dollar sign: `$` → `...-..-`
-- Quote: `"` → `.-..-.`
-- Space: ` ` → `/`
+- 18 Symbols
+
+| Name              | Symbol | Morse     |
+| ----------------- | ------ | --------- |
+| Exclamation mark  | `!`    | `-.-.--`  |
+| Question mark     | `?`    | `..--..`  |
+| Period            | `.`    | `.-.-.-`  |
+| Comma             | `,`    | `--..--`  |
+| Apostrophe        | `'`    | `.----.`  |
+| Exclamation       | `!`    | `-.-.--`  |
+| Slash             | `/`    | `-..-.`   |
+| Left parenthesis  | `(`    | `-.--.`   |
+| Right parenthesis | `)`    | `-.--.-`  |
+| Ampersand         | `&`    | `.-...`   |
+| Colon             | `:`    | `---...`  |
+| Semicolon         | `;`    | `-.-.-.`  |
+| Plus              | `+`    | `.-.-.`   |
+| Minus             | `-`    | `-....-`  |
+| Equals            | `=`    | `-...-`   |
+| At symbol         | `@`    | `.--.-.`  |
+| Dollar sign       | `$`    | `...-..-` |
+| Quote             | `"`    | `.-..-.`  |
 
 ### Unknown Characters
 
@@ -156,7 +145,7 @@ The encoder and decoder work in different ways, see the following examples:
 ```dart
 import "package:morse_codec/morse_codec.dart";
 
-void main() {  
+void main() {
   // Using an unsupported emoji
   final result = const MorseEncoder().convertText("Hi 😊");
 
@@ -231,5 +220,7 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and release notes.
 ---
 
 <!-- markdownlint-disable MD036 -->
+
 **Built with ❤️ for Dart developers**
+
 <!-- markdownlint-enable MD036 -->
