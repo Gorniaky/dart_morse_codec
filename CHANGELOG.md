@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.3
+
+- improve MorseDecoder logic
+
 ## 1.0.2
 
 - fix: improve Morse code decoding and encoding logic, enhance test cases for better coverage
