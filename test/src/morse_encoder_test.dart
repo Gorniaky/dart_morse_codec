@@ -3,34 +3,27 @@ import "package:test/test.dart";
 
 void main() {
   group("Morse encoder", () {
+    const MorseEncoder converter = .new();
+
     test("SOS", () {
       const text = "SOS";
       const expected = "... --- ...";
 
-      expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
-        expected,
-      );
+      expect(String.fromCharCodes(converter.convert(text.runes)), expected);
     });
 
     test("Hello World!", () {
       const text = "Hello World!";
       const expected = ".... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--";
 
-      expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
-        expected,
-      );
+      expect(String.fromCharCodes(converter.convert(text.runes)), expected);
     });
 
     test("Invalid Text", () {
       const text = "��Hello� �World!��";
       const expected = ".... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--";
 
-      expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
-        expected,
-      );
+      expect(String.fromCharCodes(converter.convert(text.runes)), expected);
     });
 
     test("Alphabet", () {
@@ -39,20 +32,14 @@ void main() {
       const expected =
           "/ .- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. / / ----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----. / / / -.-.-- .-..-. ...-..- .-... .----. -.--. -.--.- .-.-. --..-- -....- .-.-.- -..-. ---... -.-.-. -...- ..--.. .--.-. ..--.- / / / /";
 
-      expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
-        expected,
-      );
+      expect(String.fromCharCodes(converter.convert(text.runes)), expected);
     });
 
     test("Empty", () {
       const text = "";
       const expected = "";
 
-      expect(
-        String.fromCharCodes(const MorseEncoder().convert(text.runes)),
-        expected,
-      );
+      expect(String.fromCharCodes(converter.convert(text.runes)), expected);
     });
   });
 }

@@ -21,7 +21,7 @@ final class MorseDecoder with Converter<Iterable<int>, Iterable<int>> {
   @override
   Iterable<int> convert(Iterable<int> input) sync* {
     _MorseNode? current = _morseTree;
-    int previous = 0;
+    int previous = spaceCharCode;
 
     for (final morseCode in input) {
       switch (morseCode) {
