@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.5
+
+- fix: initialize previous variable in MorseDecoder with spaceCharCode to fix empty string decode
+
 ## 1.0.4
 
 - fix encoding
